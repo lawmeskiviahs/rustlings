@@ -1,11 +1,11 @@
 // variables5.rs
 // Execute `rustlings hint variables5` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
+// variable shadowing
+// we can redeclare variables with the same names and reinitialize their values (even change their datatypes)
 fn main() {
     let number = "T-H-R-E-E"; // don't change this line
     println!("Spell a Number : {}", number);
-    number = 3; // don't rename this variable
+    let number = 3; // don't rename this variable
     println!("Number plus two is : {}", number + 2);
 }
