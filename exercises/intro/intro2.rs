@@ -5,5 +5,8 @@
 // I AM NOT DONE
 
 fn main() {
-    println!("Hello {}!");
+    // let m= String::from("World");
+    let m: String = String::from("World");
+    // .to_string();
+    println!("Hello {}!", m);
 }
