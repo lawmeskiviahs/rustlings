@@ -4,27 +4,27 @@
 // function.
 // Execute `rustlings hint move_semantics4` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 fn main() {
-    let vec0 = Vec::new();
-
-    let mut vec1 = fill_vec(vec0);
-
+    
+    // a new vec is being created in the fill_vec function and then it's value is put into the vec1 variable
+    let mut vec1 = fill_vec();
+    
     println!("{} has length {} content `{:?}`", "vec1", vec1.len(), vec1);
-
+    
     vec1.push(88);
-
+    
     println!("{} has length {} content `{:?}`", "vec1", vec1.len(), vec1);
 }
 
 // `fill_vec()` no longer takes `vec: Vec<i32>` as argument
+// here we are creating a new vec in the fill_vec function and returning it directly, hence there is no need to explain
 fn fill_vec() -> Vec<i32> {
-    let mut vec = vec;
+    let mut vec0 = Vec::new();
+    // let mut vec = vec;
 
-    vec.push(22);
-    vec.push(44);
-    vec.push(66);
+    vec0.push(22);
+    vec0.push(44);
+    vec0.push(66);
 
-    vec
+    vec0
 }
