@@ -13,7 +13,7 @@ fn main() {
     println!("{} has length {} content `{:?}`", "vec1", vec1.len(), vec1);
 }
 
-// an immutable variable can be made mutable by shadowing it by itself
+// an immutable variable can be made mutable by shadowing itself
 fn fill_vec(mut vec: Vec<i32>) -> Vec<i32> {
     // let mut vec = vec;
 
