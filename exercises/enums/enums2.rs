@@ -1,11 +1,14 @@
 // enums2.rs
 // Execute `rustlings hint enums2` or use the `hint` watch subcommand for a hint.
-
-// I AM NOT DONE
-
+// we can define structs and tuples inside the enums 
+// possible values of the enum-data-type can be saved in enums
 #[derive(Debug)]
 enum Message {
-    // TODO: define the different variants used below
+    Move { x:u32, y: u32 },
+    Echo (String),
+    ChangeColor (u32, u32, u32),
+    Quit,
+    //fn Color (String), //can't be done now (by me) for some reason
 }
 
 impl Message {

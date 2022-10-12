@@ -2,10 +2,14 @@
 // Address all the TODOs to make the tests pass!
 // Execute `rustlings hint enums3` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
+// logs not getting printed here
 
+// an enum with different variants is created
 enum Message {
-    // TODO: implement the message variant types based on their usage below
+    ChangeColor ((u8, u8, u8)),
+    Move (Point),
+    Echo (String),
+    Quit
 }
 
 struct Point {
@@ -22,6 +26,7 @@ struct State {
 impl State {
     fn change_color(&mut self, color: (u8, u8, u8)) {
         self.color = color;
+        println!("{:?}", color)
     }
 
     fn quit(&mut self) {
@@ -36,9 +41,22 @@ impl State {
         self.position = p;
     }
 
+    // we can write some functionality for each variant of the enum 
+    // the values passes inside (if any) can be given any variable name
+    // these variables can be used in any way desired
     fn process(&mut self, message: Message) {
-        // TODO: create a match expression to process the different message variants
+        match message{
+            Message::ChangeColor(color) => self.change_color(color),
+            // Message::ChangeColor(color) => {println!("{:?}", color)}, // I want to check if this is possible, however I think it might be because we can write seperate code blocks for every variant and inside that block any statement or expression can be added
+            Message::Echo(s) => self.echo(s),
+            Message::Move(p) => self.move_position(p),
+            Message::Quit => self.quit(),
+        }
     }
+}
+
+fn main(){
+    println!("abc");
 }
 
 #[cfg(test)]
@@ -52,6 +70,7 @@ mod tests {
             position: Point { x: 0, y: 0 },
             color: (0, 0, 0),
         };
+        println!("abc");
         state.process(Message::ChangeColor((255, 0, 255)));
         state.process(Message::Echo(String::from("hello world")));
         state.process(Message::Move(Point { x: 10, y: 15 }));
