@@ -72,7 +72,8 @@ mod tests {
         };
         println!("abc");
         state.process(Message::ChangeColor((255, 0, 255)));
-        state.process(Message::Echo(String::from("hello world")));
+        // state.process(Message::Echo(String::from("hello world")));
+        state.process(Message::Echo("hello world".to_string()));
         state.process(Message::Move(Point { x: 10, y: 15 }));
         state.process(Message::Quit);
 

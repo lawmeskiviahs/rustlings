@@ -8,6 +8,39 @@
 // If you're running this using `rustlings watch`: The exercise file will be reloaded
 // when you change one of the lines below! Try adding a `println!` line, or try changing
 // what it outputs in your terminal. Try removing a semicolon and see what happens!
+//I AM NOT DON
+
+
+
+
+// fn trim_me(mut input: &str) {
+//     // TODO: Remove whitespace from both ends of a string!
+//         // let mut input = input;
+//         // let a = input.trim().to_string();
+//         // *input = input[..];
+//         // input.push_str("hola")
+//         // input = x;
+//         // println!("{}x", input.to_string());
+//         // todo!()
+// }
+
+// fn compose_me(input: &str) -> String {
+//     // TODO: Add " world!" to the string! There's multiple ways to do this!
+//     input.to_string() + " world!"
+// }
+
+// fn replace_me(input: &str) -> String {
+//     // TODO: Replace "cars" in the string with "balloons"!
+//     input.to_string()
+// }
+
+// fn main(){
+//     let mut x = "Hello!     ";
+//         let y=trim_me(x);
+//         println!("{}x", x);
+// }
+
+
 
 // introoo
 fn main() {
@@ -28,3 +61,31 @@ fn main() {
     println!("Going forward, the source of the exercises will always be in the success/failure output.");
     println!("Hello heelo hello");
 }
+
+
+// fn main() {
+//     let mut vec0 = Vec::new();
+//     // let vec0 = Vec::new();
+
+//     // let mut vec1 = fill_vec(vec0);
+//     let mut vec1 = fill_vec(&mut vec0);
+
+//     // Do not change the following line!
+//     println!("{} has length {} content `{:?}`", "vec0", vec0.len(), vec0);
+
+//     vec1.push(88);
+
+//     println!("{} has length {} content `{:?}`", "vec1", vec1.len(), vec1);
+// }
+
+// fn fill_vec(vec: &mut Vec<i32>) -> Vec<i32> {
+// // fn fill_vec(vec: Vec<i32>) -> Vec<i32> {
+//     let mut vec = vec;
+
+//     vec.push(22);
+//     vec.push(44);
+//     vec.push(66);
+
+//     // vec
+//     vec.to_vec()
+// }
