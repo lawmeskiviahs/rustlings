@@ -39,7 +39,7 @@ fn compose_me(input: &str) -> String {
 
 fn replace_me(input: &str) -> String {
     // TODO: Replace "cars" in the string with "balloons"!
-    input.to_string()
+    input.to_string().replace("cars", "balloons")
 }
 
 // fn main(){
@@ -80,9 +80,9 @@ fn replace_me(input: &str) -> String {
         assert_eq!(compose_me("Goodbye"), "Goodbye world!");
     }
 
-    // #[test]
-    // fn replace_a_string() {
-    //     assert_eq!(replace_me("I think cars are cool"), "I think balloons are cool");
-    //     assert_eq!(replace_me("I love to look at cars"), "I love to look at balloons");
-    // }
+    #[test]
+    fn replace_a_string() {
+        assert_eq!(replace_me("I think cars are cool"), "I think balloons are cool");
+        assert_eq!(replace_me("I love to look at cars"), "I love to look at balloons");
+    }
 }
