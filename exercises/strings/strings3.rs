@@ -1,8 +1,7 @@
 // strings3.rs
 // Execute `rustlings hint strings3` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
+// I AM NOT DON
 // Strings are stored on stack as a variable comprising of 3 feilds,
 // 1. A pointer to the byte data
 // 2. Space used
