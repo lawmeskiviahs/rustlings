@@ -9,6 +9,7 @@ mod sausage_factory {
         String::from("Ginger")
     }
 
+    // using the pub statement to make the submod accessible by the parent mod
     pub fn make_sausage() {
         get_secret_recipe();
         println!("sausage!");
