@@ -3,7 +3,7 @@
 // 'use' and 'as' keywords. Fix these 'use' statements to make the code compile.
 // Execute `rustlings hint modules2` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
+// I AM NOT DON
 
 // values are by default private in rust, so to make things visible to the parent module, we need to mention the pub keyword
 mod delicious_snacks {

@@ -14,7 +14,7 @@
 
 // Execute `rustlings hint hashmaps3` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
+// I AM NOT DON
 
 use std::collections::HashMap;
 
@@ -31,16 +31,114 @@ fn build_scores_table(results: String) -> HashMap<String, Team> {
 
     for r in results.lines() {
         let v: Vec<&str> = r.split(',').collect();
-        let team_1_name = v[0].to_string();
+        let team_1_name = v[0];
         let team_1_score: u8 = v[2].parse().unwrap();
-        let team_2_name = v[1].to_string();
+        let team_2_name = v[1];
         let team_2_score: u8 = v[3].parse().unwrap();
+
         // TODO: Populate the scores table with details extracted from the
         // current line. Keep in mind that goals scored by team_1
         // will be number of goals conceded from team_2, and similarly
         // goals scored by team_2 will be the number of goals conceded by
         // team_1.
+        
+        // checking if the keys already exist inside a hashmap
+        if scores.contains_key(&team_1_name.to_string()){
+
+            // .entry() returns a mutable reference to the value of a key if it exists
+            let goal_out = scores.entry(team_1_name.to_string())
+            // .or_insert() inserts a value inside the map if there is none present
+            .or_insert( Team {
+                name:team_2_name.to_string(), 
+                goals_scored: 0, 
+                goals_conceded: 0
+            });
+
+            goal_out.goals_scored += team_1_score;
+
+            let goal_in = scores.entry(team_1_name.to_string())
+            .or_insert( Team {
+                name:team_1_name.to_string(), 
+                goals_scored: 0, 
+                goals_conceded: 0
+            });
+
+            goal_in.goals_conceded += team_2_score;
+        }
+        scores.entry(team_1_name.to_string())
+        .or_insert(Team {
+            name:team_2_name.to_string(), 
+            goals_scored: team_1_score, 
+            goals_conceded: team_2_score
+        });
+        
+        if scores.contains_key(&team_2_name.to_string()) {
+
+            let goal_out = scores.entry(team_2_name.to_string())
+            .or_insert( Team {
+                name:team_2_name.to_string(), 
+                goals_scored: 0, 
+                goals_conceded: 0
+            });
+
+            goal_out.goals_scored += team_2_score;
+            let goal_in = scores.entry(team_2_name.to_string())
+            .or_insert( Team {
+                name:team_1_name.to_string(), 
+                goals_scored: 0, 
+                goals_conceded: 0
+            });
+
+            goal_in.goals_conceded += team_1_score;
+        }
+        scores.entry(team_2_name.to_string())
+        .or_insert( Team {
+            name:team_1_name.to_string(),
+            goals_scored: team_2_score, 
+            goals_conceded: team_1_score
+        });
+
+        // &mut scores.insert( team_1_name.to_string(), Team {
+            //     name: team_2_name.to_string(),
+        //     goals_scored: team_1_score,
+        //     goals_conceded: team_2_score,
+        // });
+        // &mut scores.insert( team_2_name.to_string(), Team {
+        //     name: team_1_name.to_string(),
+        //     goals_scored: team_2_score,
+        //     goals_conceded: team_1_score,
+        // });
+
+        // if scores.contains_key(&team_1_name.to_string()) {
+        //     scores.insert(team_1_name.to_string(), Team {
+        //         name: team_2_name.to_string(),
+        //         goals_scored: scores.get(&team_1_name.to_string()).unwrap().goals_scored + team_1_score,
+        //         goals_conceded: scores.get(&team_1_name.to_string()).unwrap().goals_conceded + team_2_score,
+        //     });
+        // } else {
+        //     &mut scores.insert( team_1_name.to_string(), Team {
+        //         name: team_2_name.to_string(),
+        //         goals_scored: team_1_score,
+        //         goals_conceded: team_2_score,
+        //     });
+        // }
+
+        // if scores.contains_key(&team_1_name.to_string()) {
+        //     scores.insert(team_2_name.to_string(), Team {
+        //         name: team_1_name.to_string(),
+        //         goals_scored: scores.get(&team_2_name.to_string()).unwrap_or(&0).goals_scored + team_2_score,
+        //         goals_conceded: scores.get(&team_2_name.to_string()).unwrap().goals_conceded + team_1_score,
+        //     });
+        // } else {
+        //     &mut scores.insert( team_2_name.to_string(), Team {
+        //         name: team_1_name.to_string(),
+        //         goals_scored: team_2_score,
+        //         goals_conceded: team_1_score,
+        //     });
+        // }
+        
     }
+
     scores
 }
 
